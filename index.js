@@ -62,7 +62,6 @@ async function createFunRetroObject(userId, config) {
 }
 
 if (require.main === module) {
-    // const userId = 'd0b3076b-d078-451c-ad60-8d6f9f90e696';
     let url = process.argv[0]
     while (url.indexOf('#') === -1) {
         url = process.argv.shift();
