@@ -23,8 +23,7 @@ async function getFunRetroConfig() {
     });
 }
 
-async function createFunRetroObject(userId, config) {
-
+async function getFunRetroBoard(userId, config) {
     var app = firebase.initializeApp(config);
     // console.log({app});
     return app.auth().signInWithEmailAndPassword(`${userId}@fireideaz.com`, userId)
@@ -68,6 +67,11 @@ if (require.main === module) {
     }
     const userId = url.split('#')[1];
     getFunRetroConfig()
-        .then((config) => createFunRetroObject(userId, config))
+        .then((config) => getFunRetroBoard(userId, config))
         .then((v) => console.log(JSON.stringify(v, null, 4)));
+} else {
+    exports = {
+        getFunRetroBoard,
+        getFunRetroConfig
+    }
 }
